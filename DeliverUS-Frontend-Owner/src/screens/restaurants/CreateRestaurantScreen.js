@@ -188,7 +188,7 @@ export default function CreateRestaurantScreen ({ navigation }) {
                   ? GlobalStyles.brandBlueTap
                   : GlobalStyles.brandBlue
               },
-              styles.actionButton
+              styles.button
             ]}>
           <View style={[{ flex: 1, flexDirection: 'row', justifyContent: 'center' }]}>
             <MaterialCommunityIcons name='folder-plus-outline' color={'white'} size={20}/>
