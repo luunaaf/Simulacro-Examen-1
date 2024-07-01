@@ -161,7 +161,27 @@ export default function CreateRestaurantScreen ({ navigation }) {
                 name='phone'
                 label='Phone:'
               />
-
+              <View style={styles.actionButtonsContainer}>
+          <Pressable
+            onPress={() => navigation.navigate('EditRestaurantScreen', { id: item.id })
+            }
+            style={({ pressed }) => [
+              {
+                backgroundColor: pressed
+                  ? GlobalStyles.brandBlueTap
+                  : GlobalStyles.brandBlue
+              },
+              styles.actionButton
+            ]}>
+          <View style={[{ flex: 1, flexDirection: 'row', justifyContent: 'center' }]}>
+            <MaterialCommunityIcons name='folder-plus-outline' color={'white'} size={20}/>
+            <TextRegular textStyle={styles.text}>
+              New Category
+            </TextRegular>
+          </View>
+          
+        </Pressable>
+        </View>
               <DropDownPicker
                 open={open}
                 value={values.restaurantCategoryId}
