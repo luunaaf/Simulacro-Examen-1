@@ -21,6 +21,6 @@ const create = async function (req,res){
   }
 }
 const RestaurantCategoryController = {
-  index
+  index, create
 }
 export default RestaurantCategoryController

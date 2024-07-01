@@ -161,9 +161,26 @@ export default function CreateRestaurantScreen ({ navigation }) {
                 name='phone'
                 label='Phone:'
               />
-              <View style={styles.actionButtonsContainer}>
+              
+              <DropDownPicker
+                open={open}
+                value={values.restaurantCategoryId}
+                items={restaurantCategories}
+                setOpen={setOpen}
+                onSelectItem={ item => {
+                  setFieldValue('restaurantCategoryId', item.value)
+                }}
+                setItems={setRestaurantCategories}
+                placeholder="Select the restaurant category"
+                containerStyle={{ height: 40, marginTop: 20 }}
+                style={{ backgroundColor: GlobalStyles.brandBackground }}
+                dropDownStyle={{ backgroundColor: '#fafafa' }}
+              />
+              <ErrorMessage name={'restaurantCategoryId'} render={msg => <TextError>{msg}</TextError> }/>
+
+              <View style={styles.button}>
           <Pressable
-            onPress={() => navigation.navigate('EditRestaurantScreen', { id: item.id })
+            onPress={() => navigation.navigate('CreateRestaurantCategoryScreen', { id: item.id })
             }
             style={({ pressed }) => [
               {
@@ -182,22 +199,6 @@ export default function CreateRestaurantScreen ({ navigation }) {
           
         </Pressable>
         </View>
-              <DropDownPicker
-                open={open}
-                value={values.restaurantCategoryId}
-                items={restaurantCategories}
-                setOpen={setOpen}
-                onSelectItem={ item => {
-                  setFieldValue('restaurantCategoryId', item.value)
-                }}
-                setItems={setRestaurantCategories}
-                placeholder="Select the restaurant category"
-                containerStyle={{ height: 40, marginTop: 20 }}
-                style={{ backgroundColor: GlobalStyles.brandBackground }}
-                dropDownStyle={{ backgroundColor: '#fafafa' }}
-              />
-              <ErrorMessage name={'restaurantCategoryId'} render={msg => <TextError>{msg}</TextError> }/>
-
               <Pressable onPress={() =>
                 pickImage(
                   async result => {
