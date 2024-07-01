@@ -180,7 +180,7 @@ export default function CreateRestaurantScreen ({ navigation }) {
 
               <View style={styles.button}>
           <Pressable
-            onPress={() => navigation.navigate('CreateRestaurantCategoryScreen', { id: item.id })
+            onPress={() => navigation.navigate('CreateRestaurantCategoryScreen', { id: values.id})
             }
             style={({ pressed }) => [
               {
