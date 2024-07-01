@@ -1,7 +1,7 @@
 
 import RestaurantCategoryController from '../controllers/RestaurantCategoryController.js'
 import { hasRole, isLoggedIn } from '../middlewares/AuthMiddleware.js'
-import RestaurantCategoryValidation from '../controllers/validation/RestaurantCategoryValidation.js'
+//import RestaurantCategoryValidation from '../controllers/validation/RestaurantCategoryValidation.js'
 const loadFileRoutes = function (app) {
   app.route('/restaurantCategories')
     .get(RestaurantCategoryController.index)
@@ -9,7 +9,7 @@ const loadFileRoutes = function (app) {
       isLoggedIn,
       hasRole('owner'),
       
-      RestaurantCategoryValidation.create,
+      //RestaurantCategoryValidation.create,
       RestaurantCategoryController.create
     )
   
