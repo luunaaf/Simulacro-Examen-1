@@ -39,6 +39,12 @@ export default function CreateRestaurantScreen ({ navigation }) {
         navigation.navigate('CreateRestaurantScreen', { dirty: true })
       } catch (error) {
         console.log(error)
+        showMessage({
+          message: `This category already exists. ${error} `,
+          type: 'error',
+          style: GlobalStyles.flashStyle,
+          titleStyle: GlobalStyles.flashTextStyle
+      })
         setBackendErrors(error.errors)
       }
     }

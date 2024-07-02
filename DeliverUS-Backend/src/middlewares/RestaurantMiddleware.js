@@ -1,4 +1,4 @@
-import { Restaurant, Order } from '../models/models.js'
+import { Restaurant, RestaurantCategory, Order } from '../models/models.js'
 
 const checkRestaurantOwnership = async (req, res, next) => {
   try {
@@ -25,4 +25,18 @@ const restaurantHasNoOrders = async (req, res, next) => {
   }
 }
 
-export { checkRestaurantOwnership, restaurantHasNoOrders }
+const checkCategoryExists = async ( req,res,next) => {
+  try{
+    const category = await RestaurantCategory.findOne({where:{name:req.body.name}})
+   if(category){
+    
+    
+  return res.status(403).send('This category already exists')
+}
+  return next()
+}catch(err) {
+  return res.status(500).send('Error')
+}
+}
+
+export { checkRestaurantOwnership, restaurantHasNoOrders , checkCategoryExists}
